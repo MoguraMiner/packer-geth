@@ -1,0 +1,20 @@
+{
+  "variables": {
+    "access_key": "{{env `access_key`}}",
+    "secret_key": "{{env `secret_key`}}",
+    "region": "{{env `region`}}",
+    "instance_type": "{{env `instance_type`}}",
+    "ssh_username": "{{env `ssh_username`}}"
+  },
+  "builders": [{
+    "type": "amazon-ebs",
+    "access_key": "{{user `access_key`}}",
+    "secret_key": "{{user `secret_key`}}",
+    "region": "{{user `region`}}",
+    "source_ami": "ami-80861296",
+    "instance_type": "{{user `instance_type`}}",
+    "ssh_username": "{{user `ssh_username`}}",
+    "ami_name": "mogura-geth {{timestamp}}"
+
+  }]
+}
