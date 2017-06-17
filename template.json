@@ -13,8 +13,21 @@
     "region": "{{user `region`}}",
     "source_ami": "ami-80861296",
     "instance_type": "{{user `instance_type`}}",
-    "ssh_username": "{{user `ssh_username`}}",
+    "ssh_username": "ubuntu",
     "ami_name": "mogura-geth {{timestamp}}"
-
-  }]
+  }],
+  "provisioners": [{
+    "type": "shell",
+    "inline": [
+      "sleep 30",
+      "sudo apt-get -y update",
+      "sudo apt-get -y install linux-aws linux-headers-aws linux-image-aws",
+      "sudo apt-get -y install apt-transport-https ca-certificates curl software-properties-common",
+      "curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -",
+      "sudo apt-key fingerprint 0EBFCD88",
+      "sudo add-apt-repository \"deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable\"",
+      "sudo apt-get -y update",
+      "sudo apt-get -y install docker-ce"
+    ]
+    }]
 }
