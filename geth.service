@@ -1,8 +1,9 @@
 [Unit]
 Description=Start geth node to interface with ethereum network
+ConditionPathIsDirectory=/data
 
 [Service]
-ExecStart=geth --rpc --fast --cache=2048
+ExecStart=geth --rpc --fast --cache=2048 --datadir /data
 
 [Install]
 WantedBy=multi-user.target
