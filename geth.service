@@ -1,0 +1,8 @@
+[Unit]
+Description=Start geth node to interface with ethereum network
+
+[Service]
+ExecStart=geth --rpc --fast --cache=2048
+
+[Install]
+WantedBy=multi-user.target
