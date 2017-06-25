@@ -18,11 +18,6 @@
   }],
   "provisioners": [
     {
-      "type": "file",
-      "source": "geth.service",
-      "destination": "/etc/systemd/system/geth.service"
-    },
-    {
       "type": "shell",
       "inline": [
         "sleep 30",
@@ -36,8 +31,7 @@
         "sudo apt-get -y install software-properties-common",
         "sudo add-apt-repository -y ppa:ethereum/ethereum",
         "sudo apt-get -y update",
-        "sudo apt-get -y install ethereum",
-        "systemctl enable"
+        "sudo apt-get -y install ethereum"
       ]
     }]
   }
